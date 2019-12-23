@@ -15,5 +15,7 @@ A **manager** is shown a list of all his players when he logs in. He is also sho
 ### Player
 
 A **player** is shown all the bids he has received. He can either accept or reject from that list of bids. Once he accepts a particular bid, all the other bids are rejected automatically and he is shown only the status of the administrator’s reply to that bid. Once the administrator accepts that bid, the player gets transferred to the bidding manager’s team.  
+
 ---
+
 After all the bids have been placed and all the transfers made, the administrator can decide to end the transfer window. After the transfer window ends, the teams are finalized and no more transfers can take place. The tournament then begins. Managing the tournament is beyond the scope of this project.

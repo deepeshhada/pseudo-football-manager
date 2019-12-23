@@ -1,0 +1,50 @@
+<h2 class="page-header">Dashboard</h2>
+
+<div *ngIf="isPlayerBool">
+
+   <h4 class="page-header">Bids Received</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Bidding Club</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tempBid of bids">
+        <td>{{ tempBid.biddingClub }}</td>
+        <td>{{ tempBid.amount }}$</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div *ngIf="!isPlayerBool">
+
+  <h4 class="page-header">Other Players</h4>
+  <table class="table table-striped">
+    
+    <thead>
+      <tr>
+        <th>Player Name</th>
+        <th>Username</th>
+        <th>Club</th>
+        <th>Nationality</th>
+        <th>Place Bid</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let tempArray of playerArray">
+        <td>{{ tempArray.fullname }}</td>
+        <td>{{ tempArray.username }}</td>
+        <td>{{ tempArray.club }}</td>
+        <td>{{ tempArray.nationality }}</td>
+        <td><i class="glyphicon glyphicon-euro button-remove"></i></td>
+      </tr>
+    </tbody>
+  
+  </table>
+
+</div>

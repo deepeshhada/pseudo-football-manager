@@ -1,0 +1,93 @@
+<h1 class="page-header">Register Player</h1>
+
+<div class="row show-hide-message">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+<!-- Registration Form -->
+<form [formGroup]="form" (submit)="onRegisterSubmit()">
+
+  <!-- Username Input -->
+  <div class="form-group">
+    <label for="username">Username</label>
+    <div [ngClass]="{'has-error': (form.controls.username.errors && form.controls.username.dirty), 'has-success': !form.controls.username.errors}">
+      <input type="text" name="username" class="form-control" autocomplete="off" placeholder="*Username" formControlName="username" />
+      <!-- Validation -->
+      <ul class="help-block">
+        <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">This field is required</li>
+        <li *ngIf="(form.controls.username.errors?.minlength && form.controls.username.dirty || form.controls.username.errors?.maxlength && form.controls.username.dirty ) && form.controls.username.dirty">Minimum characters: 5, Maximum characters: 35</li>
+        <li *ngIf="form.controls.username.errors?.validateUsername && form.controls.username.dirty">Invalid Username</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Password Input -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <div [ngClass]="{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': !form.controls.password.errors}">
+      <input type="password" name="password" class="form-control" autocomplete="off" placeholder="*Password" formControlName="password" />
+      <!-- Validation -->
+      <ul class="help-block">
+        <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This field is required</li>
+        <li *ngIf="form.controls.password.errors?.minlength && form.controls.password.dirty || form.controls.password.errors?.maxlength && form.controls.password.dirty ">Minimum characters: 8, Maximum characters: 20</li>
+        <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">Password must have at least one uppercase, one lowercase and a special character, and a number</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Confirm Password Input -->
+  <div class="form-group">
+    <label for="confirm">Confirm Password</label>
+    <div [ngClass]="{'has-error': (form.controls.confirm.errors && form.controls.confirm.dirty) || (form.errors?.matchingPasswords && form.controls.confirm.dirty), 'has-success': !form.controls.confirm.errors && !form.errors?.matchingPasswords}">
+      <input type="password" name="confirm" class="form-control" autocomplete="off" placeholder="*Confirm Password" formControlName="confirm" />
+      <!-- Validation -->
+      <ul class="help-block">
+        <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">This field is required</li>
+        <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">Passwords do not match</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Full Name Input -->
+  <div class="form-group">
+    <label for="fullname">Full Name</label>
+    <div [ngClass]="{'has-error': (form.controls.fullname.errors && form.controls.fullname.dirty), 'has-success': !form.controls.fullname.errors}">
+      <input type="text" name="fullname" class="form-control" autocomplete="off" placeholder="*Full Name" formControlName="fullname" />
+      <!-- Validation -->
+      <ul class="help-block">
+        <li *ngIf="form.controls.fullname.errors?.required && form.controls.fullname.dirty">This field is required</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Club Name Input -->
+  <div class="form-group">
+    <label for="club">Club</label>
+    <div [ngClass]="{'has-error': (form.controls.club.errors && form.controls.club.dirty), 'has-success': !form.controls.club.errors}">
+      <input type="text" name="club" class="form-control" autocomplete="off" placeholder="*Club Name" formControlName="club" />
+      <!-- Validation -->
+      <ul class="help-block">
+        <li *ngIf="form.controls.club.errors?.required && form.controls.club.dirty">This field is required</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Nationality Input -->
+  <div class="form-group">
+    <label for="nationality">Nationality</label>
+    <div [ngClass]="{'has-error': (form.controls.nationality.errors && form.controls.nationality.dirty), 'has-success': !form.controls.nationality.errors}">
+      <input type="text" name="nationality" class="form-control" autocomplete="off" placeholder="*Nationality" formControlName="nationality" />
+      <!-- Validation -->
+      <ul class="help-block">
+        <li *ngIf="form.controls.nationality.errors?.required && form.controls.nationality.dirty">This field is required</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Submit Input -->
+  <input [disabled]="!form.valid" type="submit" class="btn btn-primary" value="Submit" />
+
+</form>
+<!-- Registration Form /-->

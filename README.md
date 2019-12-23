@@ -1,1 +1,1 @@
-# pseudo-football-manager
+# Pseudo Football Manager
